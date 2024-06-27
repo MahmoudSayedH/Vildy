@@ -7,6 +7,12 @@ const app = express();
 app.get('/api/genres', (req, res) => {
   res.status(200).json({ data: { genres: '<list of all genres>' } });
 });
+//create new genres
+app.post('/api/genres', (req, res) => {
+  const newGenres = req.body;
+
+  res.status(200).json({ data: { genres: '<genres created>' } });
+});
 //run the server and wait for requests
 const port = process.env.PORT || 3000;
 app.listen(port, () => console.log(`Server is running on port: ${port} ...`));
