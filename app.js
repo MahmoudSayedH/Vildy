@@ -3,6 +3,8 @@ const morgan = require('morgan');
 const dotenv = require('dotenv');
 dotenv.config();
 const app = express();
+//use morgan to moniter the incomming requests
+app.use(morgan('dev'));
 //add middleware to parse the json sent in the request:
 app.use(express.json());
 
@@ -39,6 +41,7 @@ app.put('/api/genres/:id', (req, res) => {
   const id = req.params.id;
   res.status(204).json({ data: { genres: null } });
 });
+
 //run the server and wait for requests
 const port = process.env.PORT || 3000;
 app.listen(port, () => console.log(`Server is running on port: ${port} ...`));
