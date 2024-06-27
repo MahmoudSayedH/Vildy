@@ -3,8 +3,10 @@ const morgan = require('morgan');
 const dotenv = require('dotenv');
 dotenv.config();
 const app = express();
+
 //use morgan to moniter the incomming requests
-app.use(morgan('dev'));
+if (process.env.NODE_ENV === 'development') app.use(morgan('dev'));
+
 //add middleware to parse the json sent in the request:
 app.use(express.json());
 
