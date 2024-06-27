@@ -33,6 +33,12 @@ app.put('/api/genres/:id', (req, res) => {
   res.status(200).json({ data: { genres: '<Updated genres>' } });
 });
 
+//Delete genres
+app.put('/api/genres/:id', (req, res) => {
+  // get id from the request parameter
+  const id = req.params.id;
+  res.status(204).json({ data: { genres: null } });
+});
 //run the server and wait for requests
 const port = process.env.PORT || 3000;
 app.listen(port, () => console.log(`Server is running on port: ${port} ...`));
