@@ -15,7 +15,7 @@ const getGenre = async (req, res) => {
   // get id from the request parameter
   const id = req.params.id;
   //Search for id in the database
-  const genre = Genre.find(id);
+  const genre = await Genre.findById(id);
   // send response contains the data of the recived id
   res.status(200).json({ status: 'success', data: { genre } });
 };
